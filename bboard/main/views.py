@@ -125,18 +125,3 @@ class DeleteUserView(LoginRequiredMixin, DeleteView):
             queryset = self.get_queryset()
         return get_object_or_404(queryset, pk=self.user_id)
 
-
-def product(request):
-    return render(request, 'main/product.html')
-
-
-def new_orders(request):
-    return render(request, 'main/new_orders.html')
-
-
-def doing_orders(request):
-    return render(request, 'main/doing_orders.html')
-
-
-def done_orders(request):
-    return render(request, 'main/done_orders.html')

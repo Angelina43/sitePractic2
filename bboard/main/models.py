@@ -21,23 +21,3 @@ class AdvUser(AbstractUser):
 
     class Meta(AbstractUser.Meta):
         pass
-
-
-class Order(models.Model):
-    name = models.CharField(max_length=254, verbose_name='Название', blank=False)
-    about = models.TextField(verbose_name='Описание', blank=False)
-    date = models.DateField(verbose_name='Дата добавления', blank=True)
-    category = models.ForeignKey('Category', verbose_name='Категория', on_delete=models.CASCADE, default='1')
-    image = models.ImageField(max_length=254, upload_to=get_name_file,
-                              blank=True, null=True,
-                              validators=[FileExtensionValidator(allowed_extensions=['png', 'jpg', 'jpeg', 'bmp'])])
-
-    def __str__(self):
-        return self.name
-
-
-class Category(models.Model):
-    name = models.CharField(max_length=254, verbose_name='Наимнование', blank=False)
-
-    def __str__(self):
-        return self.name
